@@ -1,0 +1,7 @@
+{
+	"server_port": 6001,
+	"mongoDBURL":"mongodb://localhost:27017/tache",
+	"paymentUrl":"localhost:9093/payment",
+	"jwtSecret": "fgxzbmvhgkiteqw135rodjdxff+=sdhbkvnxzm-=",
+	"encryptedKey": "gsfhasemdWr714dtGyHJY#%#%"
+}

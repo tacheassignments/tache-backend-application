@@ -1,0 +1,17 @@
+{
+	"server_port": 6001,
+	"mongoDBURL":"mongodb://carryit:carryit@185.137.93.96:27017/carryit_preprod",
+	"TWILIO_PHONE_AUTH_API_KEY":"mKEyneuSvzOIBu7eegaWykvvSOjmNrw5",
+	"paymentUrl":"http://payment-preprod.carryit.com/payment",
+	"service_url": "http://api-preprod.carryit.com",
+	"checkout": {
+		"checkoutUrl":"https://api.sandbox.checkout.com/payments/",
+		"secretKey": "sk_test_0cd7f15e-3c21-45e1-9034-cc1fbf601c04",
+		"common": "https://sandbox.checkout.com/api2/v2/charges/",
+		"cardId": "https://sandbox.checkout.com/api2/v2/charges/card",
+		"bin": "https://sandbox.checkout.com/api2/v2/lookups/bins/"
+	},
+	"encryptedKey":"dfsdfsgsf+=uuyenmxncowgfmpchw",
+	"jwtSecret":"pqowugbmao+&hsn=spdmdnsjq!",
+	"FCMServerKey":"AIzaSyDDlsqtF1J5Jfk7NFQPmUYMweQZmzIRRok"
+}
