@@ -41,4 +41,16 @@ router.post('/login', (req, res) => {
     }
 })
 
+router.post('/forgot', (req, res) => {
+    user.forgot(req.body, result => {
+        res.json(result);
+    })
+})
+
+router.post('/setPassword', (req, res) => {
+    user.setPassword(req.body, result => {
+        res.json(result);
+    })
+})
+
 module.exports = router

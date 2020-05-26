@@ -155,7 +155,72 @@ const Login = (args, callback) => {
     })
 }
 
+const forgot = (args, callback) => {
+    let responseObj = {
+        status: _status.ERROR,
+        message: 'Error in during forgot password',
+        response: {}
+    }
+
+    _mongoose.models['Users'].findOne({ email: args.email }, (e, d) => {
+        if (e) {
+            return callback(responseObj)
+        } else {
+            return callback({
+                status: _status.SUCCESS,
+                message: "email id exists"
+            })
+        }
+    });
+}
+
+const setPassword = (args, callback) => {
+    let responseObj = {
+        status: _status.ERROR,
+        message: 'Error in during forgot password',
+        response: {}
+    }
+
+    _mongoose.models['Users'].findOne({ email: args.email }, (e, d) => {
+        if (e) {
+            return callback(responseObj)
+        } else {
+            let hashPassword = (cb) => {
+                bcrypt.hash(args.password, 6, function (err, hash) {
+                    if (err) {
+                        responseObj.message = "Error in encrypt the password."
+                        return callback(responseObj);
+                    }
+                    d.password = hash;
+                    return cb();
+                });
+            }
+            let changePassword = (cb) => {
+                new _mongoose.models['Users'](d).save((e, d) => {
+                    if (!e && d) {
+                        responseObj.status = _status.SUCCESS;
+                        responseObj.message = 'successfully set password';
+                        //responseObj.data = d;
+                        return cb();
+                    } else if (e) {
+                        responseObj.error = e;
+                        return cb();
+                    }
+                })
+            }
+            _async.series([
+                hashPassword.bind(),
+                changePassword.bind()
+            ], () => {
+                return callback(responseObj)
+            })
+        }
+    });
+}
+
 module.exports = {
     CreateUser,
-    Login
+    Login,
+    forgot,
+    setPassword
 };
