@@ -6,7 +6,7 @@
     "start": "supervisor ./server"
   },
   "dependencies": {
-    "async": "^3.1.0",
+    "async": "^3.2.2",
     "authy": "^1.4.0",
     "axios": "^0.19.0",
     "bcrypt": "^3.0.6",
